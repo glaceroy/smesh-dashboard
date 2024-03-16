@@ -1,0 +1,43 @@
+# Default values for smesh-dashboard.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+namespace: smesh-dashboard
+
+replicaCount: 1
+
+image:
+  repository: glaceroy/smesh-dashboard
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: v1.0
+
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  name: smesh-dashboard-sa
+
+ports:
+- name: http
+  port: 5000
+  targetPort: 5000
+  protocol: TCP
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+volumeMounts:
+- name: endpoints-config
+  mountPath: /app/endpoints-config
+  readOnly: true
+
+volumes:
+- name: endpoints-config
+  configMap:
+    name: endpoints-config
