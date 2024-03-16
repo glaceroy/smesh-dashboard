@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "smesh-dashboard.fullname" . }}
+data:
+  endpoints.json: |-
+{{ .Files.Get "endpoints.json" | indent 4}}
