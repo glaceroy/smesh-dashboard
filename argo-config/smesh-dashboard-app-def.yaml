@@ -22,9 +22,7 @@ spec:
     - name: 'Purpose'
       value: 'Dashboard to show smesh connectivity'
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
-    - PruneLast=true
-    - CreateNamespace=true
+      - PruneLast=true
+      - CreateNamespace=true
+
