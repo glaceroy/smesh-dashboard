@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-namespace: smesh-dashboard
+namespace: lbg-ocp-smesh-dashboard-004-lab
 
 replicaCount: 1
 
